@@ -5,20 +5,20 @@ C = [102, 105, 109]
 
 #1:Calculo de los ususarios 
 ambas_plataformas = []
-una_plataforma = [] 
+almenos_una_plataforma = [] 
 sin_errores = []
 unica_plataforma = []
-en_C_no_en_AB = []
-universo_usuarios = set(A + B + C)
+
+universo_usuarios = set(A + B + C)  
 
 for usuario in universo_usuarios:
-    #Ambas plataformas 
+    #Ambas plataformas   
     if usuario in A and usuario in B:
         ambas_plataformas.append(usuario)
     
     #Al menos una plataforma
     if usuario in A or usuario in B:
-        una_plataforma.append(usuario)
+        almenos_una_plataforma.append(usuario)
     
     #No genera errores
     if (usuario in A or usuario in B) and usuario not in C:
@@ -28,7 +28,7 @@ for usuario in universo_usuarios:
     if (usuario in A and usuario not in B) or (usuario in B and usuario not in A):
         unica_plataforma.append(usuario)
 
-print(f"Ambas plataformas: {ambas_plataformas}\nAl menos una plataforma: {una_plataforma}\nNo generaron errores: {sin_errores}\nUna sola plataforma: {unica_plataforma}")
+print(f"Ambas plataformas: {ambas_plataformas}\nAl menos una plataforma: {almenos_una_plataforma}\nNo generaron errores: {sin_errores}\nUna sola plataforma: {unica_plataforma}")
 
 
 #2: Expresion con Compresion de Conjuntos
@@ -37,16 +37,20 @@ print("Usuarios que usan al menos una plataforma = {x|x ∈ A ∨ x ∈ B}")
 print("Usuarios que usan ambas plataformas = {x|x ∈ A ∧ x ∈ B}")
 
 #3: Usuarios en 𝐶 pero no en 𝐴 ∪ 𝐵
-for estudiante in C:
-    if estudiante not in A and estudiante not in B:
-        en_C_no_en_AB.append(estudiante)
+en_C_no_en_AB = []
+for usuario in C:
+    if usuario not in A and usuario not in B:
+        en_C_no_en_AB.append(usuario)
 print(f"\nUsuarios que aparecen en C pero no en 𝐴 ∪ 𝐵: {en_C_no_en_AB}")
 
 #Parte B - Lógica proposicional
 #4: 
-p = A
-q = B
-r = C
+#Definir:
+    # 𝑝: pertenece a A
+    # 𝑞: pertenece a B
+    # 𝑟: pertenece a C
+
+#Ususarios críticos: (p ∨ q) ∧ r
 
 #5: Tabla de verdad - (p ∨ q) ∧ r
 print("\n TABLA DE VERDAD ")
@@ -65,7 +69,7 @@ print("-" * 55)
 
 #6: Función para determinar si un usuario es crítico
 def es_critico(usuario_id):
-    p = usuario_id in A   
+    p = usuario_id in A         
     q = usuario_id in B   
     r = usuario_id in C   
     return (p or q) and r
@@ -74,13 +78,14 @@ def es_critico(usuario_id):
 criticos = []
 no_criticos = []
 
-for usuario in universo_usuarios:
+for usuario in universo_usuarios:   
     if es_critico(usuario):
-        criticos.append(usuario)
+        criticos.append(usuario)    
     else:
         no_criticos.append(usuario)
 
 print("\n---CLASIFICACION DE USUARIOS---")
 print(f"Usuarios Críticos:    {criticos}")
 print(f"Usuarios No Críticos: {no_criticos}")
+
 
