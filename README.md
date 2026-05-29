@@ -67,3 +67,23 @@ Dominio: `0 ≤ x ≤ 50`
 Se utilizó **matplotlib** para la generación del gráfico comparativo de los tres planes. Esta librería no forma parte del contenido visto en clase y fue incorporada como proceso de investigación, conforme a lo indicado en la consigna.
 
 ---
+
+### Consigna 3 — Análisis de rendimiento en sistemas distribuidos
+**Temas**: Matrices + Operaciones matriciales
+Una empresa de tecnología opera un sistema distribuido donde distintas funcionalidades del backend se ejecutan en múltiples servidores. Para analizar el rendimiento y detectar cuellos de botella, se registran métricas de ejecución representadas en dos matrices:
+
+M: tiempos promedio de ejecución (en ms) de cada función en cada servidor
+C: cantidad de ejecuciones registradas por función y servidor
+
+```
+M = | 120  150  100 |        C = | 30  20  10 |
+    | 200  180  220 |            | 15  25  20 |
+    |  90  110   95 |            | 40  10  30 |
+```
+
+Donde cada fila representa una función del sistema (autenticación, procesamiento de datos, generación de reportes) y cada columna representa un servidor distinto.
+Contenido
+
+Cálculo del tiempo promedio de ejecución por función (promedio por fila)
+Cálculo del tiempo promedio de ejecución por servidor (promedio por columna)
+Cálculo de la matriz transpuesta de M y análisis de su interpretación en contexto
